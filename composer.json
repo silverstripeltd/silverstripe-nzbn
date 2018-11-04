@@ -1,0 +1,46 @@
+{
+    "name": "somar/silverstripe-nzbn",
+    "description": "Silvertripe module for adding a NZBN lookup field.",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "nzbn"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Tom Caiger",
+            "email": "tom@somar.co.nz"
+        },
+        {
+            "name": "Martin Hipp",
+            "email": "martin@somar.co.nz"
+        }
+    ],
+    "require": {
+        "silverstripe/cms": "^4.0",
+        "silverstripe/userforms": "^5.2",
+        "symbiote/silverstripe-gridfieldextensions": "^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Somar\\NZBN\\": "src/",
+            "Somar\\NZBN\\Tests\\": "tests/"
+        }
+    },
+    "suggest": {
+        "colymba/gridfield-bulk-editing-tools": "Allows for bulk management of form submissions",
+        "silverstripe/gridfieldqueuedexport": "Export large submission as CSV through queued jobs in the background"
+    },
+    "extra": {
+        "expose": [
+            "client"
+        ]
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}

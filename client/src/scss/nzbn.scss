@@ -1,0 +1,50 @@
+.nzbn-loader {
+  background: url('../images/loading.gif') no-repeat;
+  width: 16px;
+  height: 16px;
+  display: none;
+
+  img {
+    display: none;
+    border: none;
+    background: none;
+  }
+}
+
+.nzbn-list {
+  position: absolute;
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: -1px 0 0 0 !important;
+  border: solid 1px #ccc;
+  background: white;
+  width: 100%;
+  z-index: 99;
+}
+
+.nzbn-item {
+  margin: 0;
+  list-style-type: none;
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.nzbn-lookup {
+  position: relative;
+
+  &.loading {
+    .nzbn-button {
+      display: none;
+    }
+
+    .nzbn-loader {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.DS_Store
+mix-manifest.json
+*.css.map
+*.js.map
+*.log
+node_modules/
+vendor/
+resources/

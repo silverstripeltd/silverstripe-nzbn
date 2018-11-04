@@ -1,0 +1,7 @@
+---
+Name: nzbnroutes
+After: framework/routes#coreroutes
+---
+SilverStripe\Control\Director:
+  rules:
+    NZBNLookup//$Action': Somar\NZBN\Control\LookupController
