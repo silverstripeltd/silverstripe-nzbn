@@ -1,5 +1,5 @@
 {
-    "name": "somar/silverstripe-nzbn",
+    "name": "somardesignstudios/silverstripe-nzbn",
     "description": "Silvertripe module for adding a NZBN lookup field.",
     "type": "silverstripe-vendormodule",
     "keywords": [
