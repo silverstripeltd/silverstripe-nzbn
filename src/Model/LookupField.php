@@ -43,8 +43,8 @@ class LookupField extends TextField
      */
     public function __construct($name, $title = null, $source = null, $value = '', $maxLength = null, $form = null)
     {
-        Requirements::javascript('somar/silverstripe-nzbn:client/dist/js/nzbn.js');
-        Requirements::css('somar/silverstripe-nzbn:client/dist/css/nzbn.css');
+        Requirements::javascript('somardesignstudios/silverstripe-nzbn: client/dist/js/nzbn.js');
+        Requirements::css('somardesignstudios/silverstripe-nzbn: client/dist/css/nzbn.css');
 
         if ($source) {
             $this->setSource($source);
