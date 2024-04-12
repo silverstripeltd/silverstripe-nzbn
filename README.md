@@ -26,13 +26,13 @@ Somar\NZBN\Model\LookupField:
   button_text: 'Search'
 
 Somar\NZBN\Service\LookupService:
-  # url: 'https://sandbox.api.business.govt.nz/services/v3/nzbn'
-  access_token: 'YOUR ACCESS TOKEN'
+  # url: 'https://api.business.govt.nz/sandbox/nzbn/v5'
+  subscription_key: 'YOUR SUBSCRIPTION KEY'
 ```
 
 ## NZBN API Access
 
-Follow the steps listed here on [api.business.govt.nz](https://api.business.govt.nz/api/getting-started) to gain access to the NZBN API.
+Follow the steps listed here on [api.business.govt.nz](https://portal.api.business.govt.nz/getting-started) to gain access to the NZBN API.
 
 ## Documentation
 

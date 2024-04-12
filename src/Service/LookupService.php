@@ -12,13 +12,13 @@ class LookupService
      * @config
      * @var string
      */
-    private static $url = 'https://api.business.govt.nz/services/v3/nzbn';
+    private static $url = 'https://api.business.govt.nz/gateway/nzbn/v5';
 
     /**
      * @config
      * @var string
      */
-    private static $access_token;
+    private static $subscription_key;
 
     /**
      * @param string $nzbn
@@ -88,7 +88,9 @@ class LookupService
             ? $entityStatusMap[(int)$data['entityStatusCode']] : null;
 
         $entityData['LegalName'] = !empty($data['entityName']) ? $data['entityName'] : null;
-        $entityData['GSTStatus'] = !empty($gstStatusMap[$data['gstStatus']]) ? $gstStatusMap[$data['gstStatus']] : null;
+        $entityData['GSTStatus'] = !empty($data['gstStatus']) ?
+            !empty($gstStatusMap[$data['gstStatus']]) ? $gstStatusMap[$data['gstStatus']] : null :
+            null;
         $entityData['GSTEffectiveDate'] = !empty($data['gstEffectiveDate'])
             ? date('d/m/Y', strtotime($data['gstEffectiveDate'])) : null;
 
@@ -98,7 +100,7 @@ class LookupService
         $entityData['AustralianCompanyNumber'] = !empty($data['australianCompanyNumber'])
             ? $data['australianCompanyNumber'] : null;
 
-        if (count($data['tradingNames']) > 1) {
+        if (!empty($data['tradingNames']) && count($data['tradingNames']) > 1) {
             foreach ($data['tradingNames'] as $tradeName) {
                 if (!empty($tradeName['name']) && empty($tradeName['endDate'])) {
                     $entityData['TradingName'] = $tradeName['name'];
@@ -240,17 +242,17 @@ class LookupService
     private function api($url)
     {
         $apiUrl = self::config()->get('url');
-        $accessToken = self::config()->get('access_token');
+        $subscriptionKey = self::config()->get('subscription_key');
 
-        if (!$accessToken) {
-            throw new \RuntimeException('NZBN API access token is invalid: ' . $accessToken);
+        if (!$subscriptionKey) {
+            throw new \RuntimeException('NZBN API subscription key is invalid: ' . $subscriptionKey);
         }
 
         $curl = curl_init($apiUrl . $url);
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
-            'Authorization: Bearer ' . $accessToken,
+            'Ocp-Apim-Subscription-Key: ' . $subscriptionKey,
             'Accept: application/json',
         ]);
 
